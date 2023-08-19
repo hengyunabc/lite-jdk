@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.7.14</version>
+		<relativePath/>
+		<!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.example</groupId>
+	<artifactId>lite-jdk</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>lite-jdk</name>
+	<description>Generate a lite jdk</description>
+	<properties>
+		<java.version>17</java.version>
+	</properties>
+	<dependencies>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>3.0.0</version>
+				<executions>
+					<execution>
+						<id>lite-jdk</id>
+						<phase>package</phase>
+						<configuration>
+							<target>
+								<link compress="2" includeHeaders="false" modulepath="${java.home}/jmods" includeManPages="false" debug="false" destDir="${project.build.directory}/lite-jdk">
+									<module name="java.compiler"/>
+									<module name="jdk.crypto.ec"/>
+									<module name="java.desktop"/>
+									<module name="java.instrument"/>
+									<module name="java.logging"/>
+									<module name="java.net.http"/>
+									<module name="java.management"/>
+									<module name="java.naming"/>
+									<module name="java.sql"/>
+									<module name="java.xml"/>
+									<module name="jdk.compiler"/>
+									<module name="jdk.unsupported"/>
+								</link>
+								<tar compression="gzip" destfile="${project.build.directory}/lite-jdk.tgz" basedir="${project.build.directory}/lite-jdk"/>
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>org.apache.ant</groupId>
+						<artifactId>ant</artifactId>
+						<version>1.10.12</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+
+		</plugins>
+	</build>
+
+</project>
