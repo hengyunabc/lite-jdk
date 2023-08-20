@@ -15,7 +15,7 @@
 	<name>lite-jdk</name>
 	<description>Generate a lite jdk</description>
 	<properties>
-		<java.version>17</java.version>
+		<java.version>11</java.version>
 	</properties>
 	<dependencies>
 
@@ -40,6 +40,9 @@
 						<configuration>
 							<target>
 								<link compress="2" includeHeaders="false" modulepath="${java.home}/jmods" includeManPages="false" debug="false" destDir="${project.build.directory}/lite-jdk">
+									<module name="java.base"/>
+									<module name="jdk.jcmd"/>
+									<module name="java.security.jgss"/>
 									<module name="java.compiler"/>
 									<module name="jdk.crypto.ec"/>
 									<module name="java.desktop"/>
