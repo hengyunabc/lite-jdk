@@ -56,7 +56,14 @@
 									<module name="jdk.compiler"/>
 									<module name="jdk.unsupported"/>
 								</link>
-								<tar compression="gzip" destfile="${project.build.directory}/lite-jdk-${java.version}-${os.detected.classifier}.tgz" basedir="${project.build.directory}/lite-jdk"/>
+								<tar compression="gzip" longfile="gnu" destfile="${project.build.directory}/lite-jdk-${java.version}-${os.detected.classifier}.tgz">
+									<tarfileset dir="${project.build.directory}/lite-jdk/" filemode="755">
+										<include name="bin/*"/>
+									</tarfileset>
+									<tarfileset dir="${project.build.directory}/lite-jdk/">
+										<exclude name="bin/*"/>
+									</tarfileset>
+								</tar>
 							</target>
 						</configuration>
 						<goals>
