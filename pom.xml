@@ -55,6 +55,10 @@
 									<module name="java.xml"/>
 									<module name="jdk.compiler"/>
 									<module name="jdk.unsupported"/>
+									<module name="jdk.management"/>
+									<module name="jdk.management.agent"/>
+									<module name="jdk.jfr"/>
+
 								</link>
 								<tar compression="gzip" longfile="gnu" destfile="${project.build.directory}/lite-jdk-${java.version}-${os.detected.classifier}.tgz">
 									<tarfileset dir="${project.build.directory}/lite-jdk/" filemode="755">
