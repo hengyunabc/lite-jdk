@@ -56,7 +56,6 @@
 									<module name="jdk.compiler"/>
 									<module name="jdk.unsupported"/>
 									<module name="jdk.management"/>
-									<module name="jdk.management.agent"/>
 									<module name="jdk.jfr"/>
 
 								</link>
