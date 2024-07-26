@@ -46,7 +46,6 @@
 									<module name="java.compiler"/>
 									<module name="jdk.crypto.ec"/>
 									<module name="java.desktop"/>
-									<module name="java.instrument"/>
 									<module name="java.logging"/>
 									<module name="java.net.http"/>
 									<module name="java.management"/>
